@@ -5,5 +5,5 @@ from randomthought import views
 app_name = 'randomthought'
 
 urlpatterns = [
-    path('', views.todays_thought, name='todays_thought'),
+    path('', views.thought, name='todays_thought'),
 ]

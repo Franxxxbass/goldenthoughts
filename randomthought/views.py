@@ -1,9 +1,17 @@
 from django.shortcuts import render
 
+from randomthought.models import Sentence
 
-def todays_thought(request):
+
+def thought(request):
+
+    sentence = Sentence.objects.order_by('?').first()
 
     return render(
         request,
-        'randomthought/todays_thought.html'
+        'randomthought/todays_thought.html',
+        context={
+            'sentence':sentence
+        }
     )
+
