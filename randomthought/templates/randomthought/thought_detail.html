@@ -1,0 +1,8 @@
+{% extends 'randomthought/layout.html' %}
+
+{% block title %} Detail {%endblock%}
+{% block body %}
+    <h2>Thought number {{ sentence.id }}:</h2>
+        <p>{{ sentence.body }}</p>
+    <a href="{% url 'randomthought:thought-list' %}"><button>Back to list</button></a>
+{% endblock body %}

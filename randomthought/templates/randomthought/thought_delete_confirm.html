@@ -1,0 +1,12 @@
+{% extends 'randomthought/layout.html' %}
+
+{% block title %} WARNING! {%endblock%}
+{% block body %}
+    <h2>Deleting:</h2>
+    <form method="POST">{% csrf_token %}
+        <p>{{ sentence.body }}</p>
+        <p>Are you sure?</p>
+        <input type="submit" value="Confirm">
+    </form>
+    <a href="{% url 'randomthought:thought-list' %}"><button>Abort</button></a>
+{% endblock body %}

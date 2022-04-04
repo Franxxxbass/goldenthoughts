@@ -1,10 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'randomthought/layout.html' %}
 
-</body>
-</html>
+{% block title %} List of thoughts in database {%endblock%}
+{% block body %}
+
+<h2><a href="{% url 'randomthought:thought-create' %}">Add a new sentence</a></h2>
+    <ol>
+       {% for sentence in sentences %}
+        <li>
+        <a href="{% url 'randomthought:thought-detail' sentence.id %}">{{ sentence.body }}</a>
+        <a href="{% url 'randomthought:thought-update' sentence.id %}"><button>Modify</button></a>
+        <a href="{% url 'randomthought:thought-delete' sentence.id %}"><button>Delete</button></a>
+        </li>
+        {% endfor %}
+    </ol>
+
+{% endblock body %}

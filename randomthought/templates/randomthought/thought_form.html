@@ -1,0 +1,33 @@
+{% extends 'randomthought/layout.html' %}
+
+{% block title %} Add your thought {%endblock%}
+{% block body %}
+        {% if sentence %}
+           <h2>Modify your thought</h2>
+        {% else %}
+            <h2>Add a new thought</h2>
+        {% endif %}
+
+    <form method="POST">{% csrf_token %}
+        {% if sentence %}
+            <input
+                    type="text"
+                    name="sentence"
+                    value="{{ sentence.body }}"
+                    placeholder="What's your golden thought?"
+            >
+        {% else %}
+            <input
+                    type="text"
+                    name="sentence"
+                    placeholder="What's your golden thought?"
+            >
+        {% endif %}
+        {% if sentence %}
+            <input type="submit" value="Change">
+        {% else %}
+            <input type="submit" value="Add">
+        {% endif %}
+    </form>
+<a href="{% url 'randomthought:thought-list' %}"><button>Back to list</button></a>
+{% endblock body %}

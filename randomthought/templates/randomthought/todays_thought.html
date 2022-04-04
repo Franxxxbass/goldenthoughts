@@ -1,13 +1,6 @@
-<!DOCTYPE html>
-{% load static %}
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Today's thought</title>
-    <link rel="stylesheet" href="{% static 'styles/main.css' %}"  type="text/css" media="screen">
-</head>
-<body>
+{% extends 'randomthought/layout.html' %}
+
+{% block body %}
     <h1>Złota myśl na dzisiaj to: </h1>
     <p> {{ sentence.body }}</p>
-</body>
-</html>
+{% endblock body %}
